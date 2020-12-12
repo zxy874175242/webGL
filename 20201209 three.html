@@ -4,19 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>first threeJs</title>
-    <script src="https://threejs.org/build/three.js"></script>
+    <script src="../three.js"></script>
 </head>
 <body>
     
 </body>
 </html>
 <script>
+
+    // webgl_buffergeometry_drawrange.html
+
+    
+
     // 场景、相机
     const scene = new THREE.Scene();
     // FOV视野角度、长宽比、近截面、远截面
+    // perspective 透视相机 
+    // eg.webgl_camera.html
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
     // 渲染器
+    // 其他的还有CSS2DRenderer、CSS3DRenderer、SVGRenderer
     const renderer = new THREE.WebGLRenderer();
     // 渲染面积
     renderer.setSize( window.innerWidth, window.innerHeight );
@@ -28,6 +36,7 @@
     const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
     const cube = new THREE.Mesh( geometry, material );
     scene.add( cube );  // 默认（0,0,0）坐标
+    console.log(cube);
 
     camera.position.z = 5;
 
@@ -39,7 +48,7 @@
 
         cube.rotation.x += 0.01;
         cube.rotation.y += 0.01;
-        
+
         renderer.render( scene, camera );
     }
     animate();
